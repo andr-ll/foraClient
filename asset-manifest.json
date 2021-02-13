@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/foraClient/static/css/main.0967c3e1.chunk.css",
-    "main.js": "/foraClient/static/js/main.4835b513.chunk.js",
-    "main.js.map": "/foraClient/static/js/main.4835b513.chunk.js.map",
+    "main.js": "/foraClient/static/js/main.1f3f1e82.chunk.js",
+    "main.js.map": "/foraClient/static/js/main.1f3f1e82.chunk.js.map",
     "runtime-main.js": "/foraClient/static/js/runtime-main.8adbca3f.js",
     "runtime-main.js.map": "/foraClient/static/js/runtime-main.8adbca3f.js.map",
     "static/js/2.f0868ab7.chunk.js": "/foraClient/static/js/2.f0868ab7.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.8adbca3f.js",
     "static/js/2.f0868ab7.chunk.js",
     "static/css/main.0967c3e1.chunk.css",
-    "static/js/main.4835b513.chunk.js"
+    "static/js/main.1f3f1e82.chunk.js"
   ]
 }
