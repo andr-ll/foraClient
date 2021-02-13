@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/foraClient/static/css/main.0967c3e1.chunk.css",
+    "main.js": "/foraClient/static/js/main.695caca7.chunk.js",
+    "main.js.map": "/foraClient/static/js/main.695caca7.chunk.js.map",
+    "runtime-main.js": "/foraClient/static/js/runtime-main.8adbca3f.js",
+    "runtime-main.js.map": "/foraClient/static/js/runtime-main.8adbca3f.js.map",
+    "static/js/2.f0868ab7.chunk.js": "/foraClient/static/js/2.f0868ab7.chunk.js",
+    "static/js/2.f0868ab7.chunk.js.map": "/foraClient/static/js/2.f0868ab7.chunk.js.map",
+    "index.html": "/foraClient/index.html",
+    "static/css/main.0967c3e1.chunk.css.map": "/foraClient/static/css/main.0967c3e1.chunk.css.map",
+    "static/js/2.f0868ab7.chunk.js.LICENSE.txt": "/foraClient/static/js/2.f0868ab7.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8adbca3f.js",
+    "static/js/2.f0868ab7.chunk.js",
+    "static/css/main.0967c3e1.chunk.css",
+    "static/js/main.695caca7.chunk.js"
+  ]
+}
