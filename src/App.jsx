@@ -11,10 +11,10 @@ import './App.scss'
  export default function App() {
     return (
         <Router>
-            <Route path='/room'>
+            <Route path='/foraClient/room'>
                 <Room />
             </Route>
-            <Route path='/' exact>
+            <Route path='/foraClient' exact>
                 <LoginPage />
             </Route>
         </Router>

@@ -27,8 +27,8 @@ export const ExitChat = () => {
 
     return (
         <div className="exit flex">
-            <Link className="desktop-only" onClick={onChatLeave} to="/"><i className="far fa-times-circle"></i>leave the chat</Link>
-            <Link className="mobile-only" onClick={onChatLeave} to="/"><i className="far fa-times-circle"></i></Link>
+            <Link className="desktop-only" onClick={onChatLeave} to="/foraClient"><i className="far fa-times-circle"></i>leave the chat</Link>
+            <Link className="mobile-only" onClick={onChatLeave} to="/foraClient"><i className="far fa-times-circle"></i></Link>
         </div>
     )
 }

@@ -7,7 +7,9 @@
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100vh;
+    height: fit-content;
+    min-height: 100vh;
+    overflow-y: scroll;
 }
 
 body {
@@ -93,7 +95,7 @@ input {
         justify-content: flex-start;
         align-items: center;
         width: 100vw;
-        height: 100vh;
+        height: fit-content;
         overflow: hidden;
 }
   }

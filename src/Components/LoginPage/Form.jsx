@@ -17,7 +17,7 @@ const Form = () => {
     return (
         <form action="submit" className="flex" onSubmit={evt => evt.preventDefault()}>
             <input placeholder="Create an user name..." type="text" value={userName} onChange={evt => setUserName(evt.target.value)} />
-            <Link onClick={onLogin} to="/room" className={`${userName.trim() === '' || userName.length > 20 ? "disabled" : ""}`}>
+            <Link onClick={onLogin} to="/foraClient/room" className={`${userName.trim() === '' || userName.length > 20 ? "disabled" : ""}`}>
                 Login
                 <i className="fas fa-comments"></i>
             </Link>

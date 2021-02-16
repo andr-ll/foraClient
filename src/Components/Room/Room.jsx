@@ -21,16 +21,20 @@ export const Room = () => {
         state => state.userState.userName
     )
     const [error, setError] = useState('');
-    const [activeHamb, setActiveHamb] = useState(false)
+    const [activeHamb, setActiveHamb] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        socket.emit('login', userName, (data) => {
+    useEffect(async () => {
+        setIsLoading(true);
+        window.scrollTo(0, 0)
+        await socket.emit('login', userName, (data) => {
             if (data.error !== '') {
                 setError(data.error);
             } else {
                 dispatch(createUser(data.user))
             }
         })
+        setIsLoading(false)
         return () => { setError('') }
     }, [])
 
@@ -45,30 +49,40 @@ export const Room = () => {
     return (
         <React.Fragment>
             {
-                error !== '' ?
-                    <div className="error-window">
-                        <p>{error}</p>
-                        <Link to="/">Go Back</Link>
-                    </div>
-                    :
-                    <div className="room flex">
-                        <div className="sidebar flex">
-                            <ExitChat />
-                            <div className="container desktop-only flex">
-                                <AllRooms onRoomClick={onRoomClick} />
-                                <Users />
-                            </div>
-                            <div className={`${activeHamb ? "active" : ""} container mobile-only flex`}>
-                                <AllRooms onRoomClick={onRoomClick} />
-                                <Users />
-                            </div>
-                            <Hamburger isActive={activeHamb} setActive={onHamburgerClick} />
-                        </div>
-                        <div className="messages flex">
-                            <Messages />
-                            <MessageInput />
-                        </div>
-                    </div>
+                isLoading ? <div className="loading flex">
+                    <section class="section section-4">
+                        <span class="loader loader-bars"><span></span></span>
+		                            Loading...
+	                </section>
+                </div> :
+                    <React.Fragment>
+                        {
+                            error !== '' ?
+                                <div className="error-window">
+                                    <p>{error}</p>
+                                    <Link to="/foraClient">Go Back</Link>
+                                </div>
+                                :
+                                <div className="room flex">
+                                    <div className="sidebar flex">
+                                        <ExitChat />
+                                        <div className="container desktop-only flex">
+                                            <AllRooms onRoomClick={onRoomClick} />
+                                            <Users />
+                                        </div>
+                                        <div className={`${activeHamb ? "active" : ""} container mobile-only flex`}>
+                                            <AllRooms onRoomClick={onRoomClick} />
+                                            <Users />
+                                        </div>
+                                        <Hamburger isActive={activeHamb} setActive={onHamburgerClick} />
+                                    </div>
+                                    <div className="messages flex">
+                                        <Messages />
+                                        <MessageInput />
+                                    </div>
+                                </div>
+                        }
+                    </React.Fragment>
             }
         </React.Fragment>
     )
