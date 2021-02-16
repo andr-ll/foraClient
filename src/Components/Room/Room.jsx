@@ -9,6 +9,7 @@ import { Messages } from "./Components/Messages";
 import { MessageInput } from "./Components/MessageInput";
 import { AllRooms } from "./Components/AllRooms";
 import { ExitChat } from "./Components/ExitChat";
+import { Hamburger } from "./Components/Hamburger";
 
 // Main component of a Chat room. It renders automatically when uder joins
 // chat or changing the room
@@ -20,6 +21,7 @@ export const Room = () => {
         state => state.userState.userName
     )
     const [error, setError] = useState('');
+    const [activeHamb, setActiveHamb] = useState(false)
 
     useEffect(() => {
         socket.emit('login', userName, (data) => {
@@ -31,6 +33,14 @@ export const Room = () => {
         })
         return () => { setError('') }
     }, [])
+
+    const onHamburgerClick = () => {
+        activeHamb ? setActiveHamb(false) : setActiveHamb(true)
+    }
+
+    const onRoomClick = () => {
+        setActiveHamb(false)
+    }
 
     return (
         <React.Fragment>
@@ -44,8 +54,15 @@ export const Room = () => {
                     <div className="room flex">
                         <div className="sidebar flex">
                             <ExitChat />
-                            <AllRooms />
-                            <Users />
+                            <div className="container desktop-only flex">
+                                <AllRooms onRoomClick={onRoomClick} />
+                                <Users />
+                            </div>
+                            <div className={`${activeHamb ? "active" : ""} container mobile-only flex`}>
+                                <AllRooms onRoomClick={onRoomClick} />
+                                <Users />
+                            </div>
+                            <Hamburger isActive={activeHamb} setActive={onHamburgerClick} />
                         </div>
                         <div className="messages flex">
                             <Messages />

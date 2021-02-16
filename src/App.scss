@@ -21,6 +21,10 @@ body {
     display: flex;
 }
 
+input {
+    font-size: 16px;
+}
+
 h1, h2, h3, h4, p, span, ul, ol, li {
     cursor: default;
     margin: 0;
@@ -56,6 +60,18 @@ button, a {
     }
 }
 
+.hamburger {
+    &:hover {
+        cursor: pointer;
+        background-color: inherit;
+        color: unset;
+    }
+
+    &:active {
+        outline: none;
+    }
+}
+
 input {
     outline: none;
 }
@@ -70,19 +86,14 @@ input {
     .desktop-only {
         display: none;
     }
-  
-    button, a {
-        background-color: rgb(132, 185, 255);
-        color: white;
-    }
-
 
     #root {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         width: 100vw;
         height: 100vh;
+        overflow: hidden;
 }
   }

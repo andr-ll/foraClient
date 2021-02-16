@@ -6,7 +6,7 @@ import { userChangeRoom } from "../../../state/actions/user";
 // This component renders all rooms that user can join.
 // Also it changes current room, when user moved to another chat room.
 
-export const AllRooms = () => {
+export const AllRooms = ({onRoomClick}) => {
 
     const [rooms, setRooms] = useState([]);
     const dispatch = useDispatch();
@@ -24,6 +24,7 @@ export const AllRooms = () => {
     const onRoomChange = (room) => {
         socket.emit('changeRoom', userData.id, room, (user) => {
             dispatch(userChangeRoom(user));
+            onRoomClick();
         })
     }
 

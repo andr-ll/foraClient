@@ -1,6 +1,6 @@
 import { io } from 'socket.io-client';
 
-const PORT = "https://git.heroku.com/chatserverandrll.git"; //"http://localhost:3001";
+const PORT = "https://chatserverandrll.herokuapp.com/";
 
 export const socket = io(PORT, {
     withCredentials: true,
