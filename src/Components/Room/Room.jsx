@@ -22,19 +22,20 @@ export const Room = () => {
     )
     const [error, setError] = useState('');
     const [activeHamb, setActiveHamb] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(async () => {
+    useEffect(() => {
         setIsLoading(true);
         window.scrollTo(0, 0)
         await socket.emit('login', userName, (data) => {
             if (data.error !== '') {
                 setError(data.error);
+                setIsLoading(false)
             } else {
                 dispatch(createUser(data.user))
+                setIsLoading(false)
             }
         })
-        setIsLoading(false)
         return () => { setError('') }
     }, [])
 
