@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/foraClient/static/css/main.e8d1dce5.chunk.css",
-    "main.js": "/foraClient/static/js/main.e77a639e.chunk.js",
-    "main.js.map": "/foraClient/static/js/main.e77a639e.chunk.js.map",
+    "main.js": "/foraClient/static/js/main.8f506765.chunk.js",
+    "main.js.map": "/foraClient/static/js/main.8f506765.chunk.js.map",
     "runtime-main.js": "/foraClient/static/js/runtime-main.8adbca3f.js",
     "runtime-main.js.map": "/foraClient/static/js/runtime-main.8adbca3f.js.map",
-    "static/js/2.28802a99.chunk.js": "/foraClient/static/js/2.28802a99.chunk.js",
-    "static/js/2.28802a99.chunk.js.map": "/foraClient/static/js/2.28802a99.chunk.js.map",
+    "static/js/2.bec841b0.chunk.js": "/foraClient/static/js/2.bec841b0.chunk.js",
+    "static/js/2.bec841b0.chunk.js.map": "/foraClient/static/js/2.bec841b0.chunk.js.map",
     "index.html": "/foraClient/index.html",
     "static/css/main.e8d1dce5.chunk.css.map": "/foraClient/static/css/main.e8d1dce5.chunk.css.map",
-    "static/js/2.28802a99.chunk.js.LICENSE.txt": "/foraClient/static/js/2.28802a99.chunk.js.LICENSE.txt"
+    "static/js/2.bec841b0.chunk.js.LICENSE.txt": "/foraClient/static/js/2.bec841b0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.8adbca3f.js",
-    "static/js/2.28802a99.chunk.js",
+    "static/js/2.bec841b0.chunk.js",
     "static/css/main.e8d1dce5.chunk.css",
-    "static/js/main.e77a639e.chunk.js"
+    "static/js/main.8f506765.chunk.js"
   ]
 }
