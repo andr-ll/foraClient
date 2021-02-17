@@ -24,17 +24,18 @@ export const Room = () => {
     const [activeHamb, setActiveHamb] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(async () => {
+    useEffect(() => {
         setIsLoading(true);
         window.scrollTo(0, 0);
-        await socket.emit('login', userName, (data) => {
+        socket.emit('login', userName, (data) => {
             if (data.error !== '') {
                 setError(data.error);
+                setIsLoading(false)
             } else {
                 dispatch(createUser(data.user))
+                setIsLoading(false)
             }
         })
-        setIsLoading(false)
         return () => { setError('') }
     }, [])
 
@@ -54,14 +55,17 @@ export const Room = () => {
                         <p>{error}</p>
                         <Link to="/foraClient">Go Back</Link>
                     </div>
-                    : isLoading ?
-                        <div className="loading flex">
-                            <section class="section section-4">
-                                <span class="loader loader-bars"><span></span></span>
+                    :
+                    <React.Fragment>
+                        {
+                            isLoading &&
+                            <div className="loading flex">
+                                <section class="section section-4">
+                                    <span class="loader loader-bars"><span></span></span>
                                 Loading...
                             </section>
-                        </div>
-                        :
+                            </div>
+                        }
                         <div className="room flex">
                             <div className="sidebar flex">
                                 <ExitChat />
@@ -80,6 +84,7 @@ export const Room = () => {
                                 <MessageInput />
                             </div>
                         </div>
+                    </React.Fragment>
             }
         </React.Fragment>
     )
