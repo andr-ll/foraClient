@@ -24,18 +24,17 @@ export const Room = () => {
     const [activeHamb, setActiveHamb] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
+    useEffect(async () => {
         setIsLoading(true);
-        window.scrollTo(0, 0)
-        socket.emit('login', userName, (data) => {
+        window.scrollTo(0, 0);
+        await socket.emit('login', userName, (data) => {
             if (data.error !== '') {
                 setError(data.error);
-                setIsLoading(false)
             } else {
                 dispatch(createUser(data.user))
-                setIsLoading(false)
             }
         })
+        setIsLoading(false)
         return () => { setError('') }
     }, [])
 
@@ -50,40 +49,37 @@ export const Room = () => {
     return (
         <React.Fragment>
             {
-                isLoading ? <div className="loading flex">
-                    <section class="section section-4">
-                        <span class="loader loader-bars"><span></span></span>
-		                            Loading...
-	                </section>
-                </div> :
-                    <React.Fragment>
-                        {
-                            error !== '' ?
-                                <div className="error-window">
-                                    <p>{error}</p>
-                                    <Link to="/foraClient">Go Back</Link>
+                error !== '' ?
+                    <div className="error-window">
+                        <p>{error}</p>
+                        <Link to="/foraClient">Go Back</Link>
+                    </div>
+                    : isLoading ?
+                        <div className="loading flex">
+                            <section class="section section-4">
+                                <span class="loader loader-bars"><span></span></span>
+                                Loading...
+                            </section>
+                        </div>
+                        :
+                        <div className="room flex">
+                            <div className="sidebar flex">
+                                <ExitChat />
+                                <div className="container desktop-only flex">
+                                    <AllRooms onRoomClick={onRoomClick} />
+                                    <Users />
                                 </div>
-                                :
-                                <div className="room flex">
-                                    <div className="sidebar flex">
-                                        <ExitChat />
-                                        <div className="container desktop-only flex">
-                                            <AllRooms onRoomClick={onRoomClick} />
-                                            <Users />
-                                        </div>
-                                        <div className={`${activeHamb ? "active" : ""} container mobile-only flex`}>
-                                            <AllRooms onRoomClick={onRoomClick} />
-                                            <Users />
-                                        </div>
-                                        <Hamburger isActive={activeHamb} setActive={onHamburgerClick} />
-                                    </div>
-                                    <div className="messages flex">
-                                        <Messages />
-                                        <MessageInput />
-                                    </div>
+                                <div className={`${activeHamb ? "active" : ""} container mobile-only flex`}>
+                                    <AllRooms onRoomClick={onRoomClick} />
+                                    <Users />
                                 </div>
-                        }
-                    </React.Fragment>
+                                <Hamburger isActive={activeHamb} setActive={onHamburgerClick} />
+                            </div>
+                            <div className="messages flex">
+                                <Messages />
+                                <MessageInput />
+                            </div>
+                        </div>
             }
         </React.Fragment>
     )
