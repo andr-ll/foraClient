@@ -27,7 +27,7 @@ export const Room = () => {
     useEffect(() => {
         setIsLoading(true);
         window.scrollTo(0, 0)
-        await socket.emit('login', userName, (data) => {
+        socket.emit('login', userName, (data) => {
             if (data.error !== '') {
                 setError(data.error);
                 setIsLoading(false)
